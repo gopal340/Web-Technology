@@ -3,3 +3,6 @@ pytest
 pytest-html
 Pillow
 webdriver-manager
+opencv-python
+pyautogui
+numpy
