@@ -29,7 +29,7 @@ function Footer() {
           <div>
             <h4 className="text-white font-bold text-lg mb-6 tracking-wide">Quick Links</h4>
             <ul className="space-y-4">
-              {['About CEER', 'Our Team', 'Research Scope', 'Publications', 'Contact Us'].map((item) => (
+              {['About CEER', 'Our Team'].map((item) => (
                 <li key={item}>
                   <a href="#" className="hover:text-red-500 transition-colors flex items-center gap-2 group">
                     <span className="w-1 h-1 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -44,7 +44,7 @@ function Footer() {
           <div>
             <h4 className="text-white font-bold text-lg mb-6 tracking-wide">Resources</h4>
             <ul className="space-y-4">
-              {['Student Portal', 'Faculty Login', 'Library', 'Academic Calendar', 'Download Brochure'].map((item) => (
+              {['Student Portal', 'Faculty Login'].map((item) => (
                 <li key={item}>
                   <a href="#" className="hover:text-red-500 transition-colors flex items-center gap-2 group">
                     <span className="w-1 h-1 bg-red-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
