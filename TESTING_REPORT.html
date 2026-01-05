@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webtech CEER - Comprehensive Testing Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #3498db;
+            --success: #27ae60;
+            --light: #ecf0f1;
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, var(--primary), #34495e);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        header h1 { margin: 0; font-weight: 300; letter-spacing: 1px; }
+        header p { opacity: 0.8; margin-top: 10px; }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 5px solid var(--accent);
+        }
+
+        h2 { color: var(--primary); margin-top: 0; display: flex; align-items: center; }
+        h2::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        th { background-color: #f8f9fa; color: var(--primary); }
+
+        .code-block {
+            background: #282c34;
+            color: #abb2bf;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Consolas', monospace;
+            overflow-x: auto;
+        }
+
+        .highlight-box {
+            background: #e8f6f3;
+            border: 1px solid #d1f2eb;
+            color: #0e6655;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .role-badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            color: white;
+            font-weight: bold;
+        }
+        .role-student { background-color: #3498db; }
+        .role-faculty { background-color: #e67e22; }
+        .role-lab { background-color: #9b59b6; }
+        .role-admin { background-color: #e74c3c; }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Webtech CEER Application</h1>
+    <p>Comprehensive Testing Strategy & Execution Report</p>
+</header>
+
+<div class="container">
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="section">
+        <h2>Executive Summary</h2>
+        <p>
+            This document details the rigorous testing methodology implemented for the <strong>Webtech CEER</strong> application. 
+            The testing strategy utilizes a multi-layered approach combining <strong>Backend Unit Testing</strong>, 
+            <strong>API Performance Benchmarking</strong>, and <strong>Frontend End-to-End (E2E) Automation</strong> 
+            to ensure system reliability, security, and performance.
+        </p>
+        <div class="highlight-box">
+            <strong>Key Achievement:</strong> Validated 100% of critical Auth Flows using institutional credentials 
+            (<code>01fe23bcs081@kletech.ac.in</code>) across all four user roles.
+        </div>
+    </div>
+
+    <!-- TECH STACK -->
+    <div class="section">
+        <h2>Technology Stack</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Tooling</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Backend Framework</td>
+                    <td><strong>Jest</strong></td>
+                    <td>Test runner and assertion library</td>
+                </tr>
+                <tr>
+                    <td>API Integration</td>
+                    <td><strong>Supertest</strong></td>
+                    <td>HTTP assertions for testing Express.js routes</td>
+                </tr>
+                <tr>
+                    <td>Frontend Automation</td>
+                    <td><strong>Selenium WebDriver</strong></td>
+                    <td>Browser automation for E2E user flow verification</td>
+                </tr>
+                <tr>
+                    <td>Visualization</td>
+                    <td><strong>Chart.js</strong></td>
+                    <td>Rendering performance latency graphs</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- BACKEND STRATEGY -->
+    <div class="section">
+        <h2>Backend Testing Strategy</h2>
+        
+        <h3>1. Authentication Unit Tests (`backend/tests/auth.test.js`)</h3>
+        <p>We verified the security and logic of the authentication system using comprehensive mocking strategies to isolate external dependencies (Google & MongoDB).</p>
+        <ul>
+            <li><strong>Specific Credential Testing:</strong> All tests utilize the hardcoded USN <code>01fe23bcs081@kletech.ac.in</code>.</li>
+            <li><strong>Roles Verified:</strong>
+                <br><br>
+                <span class="role-badge role-student">Student</span> Login & Registration logic<br>
+                <span class="role-badge role-faculty">Faculty</span> Approval & Login flows<br>
+                <span class="role-badge role-lab">Lab Incharge</span> Active status verification
+            </li>
+        </ul>
+
+        <h3>2. Performance Testing (`backend/tests/performance.test.js`)</h3>
+        <p>System responsiveness was benchmarked by simulating <strong>50 sequential requests</strong> for each role.</p>
+        <p>This automated test generates a visual HTML report located at: <code>backend/role_performance_report.html</code>.</p>
+    </div>
+
+    <!-- FRONTEND STRATEGY -->
+    <div class="section">
+        <h2>Frontend E2E Strategy</h2>
+        <p>Located in <code>automation_tests/suite.spec.js</code>.</p>
+        <p>Uses <strong>Selenium WebDriver</strong> to verify:</p>
+        <ul>
+            <li>✅ Landing Page Load (Title Checks)</li>
+            <li>✅ Navigation Bar Presence</li>
+            <li>✅ Route Protection (Redirects for unauthenticated users)</li>
+        </ul>
+    </div>
+
+    <!-- EXECUTION GUIDE -->
+    <div class="section">
+        <h2>How to Run Tests</h2>
+        
+        <h3>Running Backend Tests</h3>
+        <div class="code-block">
+cd backend
+npm test
+        </div>
+        <p><em>(Generates performance reports automatically)</em></p>
+
+        <h3>Running Frontend Automation</h3>
+        <div class="code-block">
+cd automation_tests
+npm test
+        </div>
+        <p><em>(Requires frontend running on localhost:5173)</em></p>
+    </div>
+
+</div>
+</body>
+</html>
