@@ -28,7 +28,7 @@ class TestLabInstructorGoogleAuth:
     def take_screenshot(self, driver, name):
         """Take screenshot and save with timestamp"""
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        screenshot_dir = "selenium_tests/screenshots"
+        screenshot_dir = "screenshots"
         os.makedirs(screenshot_dir, exist_ok=True)
         filepath = f"{screenshot_dir}/labinstructor_{name}_{timestamp}.png"
         driver.save_screenshot(filepath)

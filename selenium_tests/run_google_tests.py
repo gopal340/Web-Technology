@@ -29,8 +29,8 @@ def run_google_auth_tests():
     print(f"Google Account: 01fe23bcs081@kletech.ac.in\n")
     
     # Create directories
-    os.makedirs("selenium_tests/screenshots", exist_ok=True)
-    os.makedirs("selenium_tests/reports", exist_ok=True)
+    os.makedirs("screenshots", exist_ok=True)
+    os.makedirs("reports", exist_ok=True)
     
     print_section("IMPORTANT INSTRUCTIONS")
     print("""
@@ -44,9 +44,9 @@ def run_google_auth_tests():
     input("\nPress ENTER to start testing...")
     
     test_files = [
-        ("Student (Google OAuth)", "selenium_tests/test_student_google.py"),
-        ("Faculty (Google OAuth)", "selenium_tests/test_faculty_google.py"),
-        ("Lab Instructor (Google OAuth)", "selenium_tests/test_labinstructor_google.py")
+        ("Student (Google OAuth)", "test_student_google.py"),
+        ("Faculty (Google OAuth)", "test_faculty_google.py"),
+        ("Lab Instructor (Google OAuth)", "test_labinstructor_google.py")
     ]
     
     results = []
@@ -75,7 +75,7 @@ def run_google_auth_tests():
         print(f"  {status:15} - {test_name}")
     
     print(f"\nTest Completed: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-    print(f"\n📸 Screenshots saved in: selenium_tests/screenshots/")
+    print(f"\n📸 Screenshots saved in: screenshots/")
     print("="*80 + "\n")
     
     return True
