@@ -131,14 +131,14 @@ function RecentEvents() {
                     {/* Navigation Buttons */}
                     <button
                         onClick={handlePrevious}
-                        className="absolute left-0 md:left-10 z-30 p-4 rounded-full bg-white/80 backdrop-blur-md text-slate-800 hover:bg-white hover:text-red-600 shadow-xl transition-all hover:scale-110"
+                        className="absolute left-0 md:left-10 z-30 p-4 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-800 text-slate-400 hover:text-red-500 hover:border-red-500/50 shadow-xl transition-all duration-300 hover:scale-110"
                     >
                         <ChevronLeft className="w-6 h-6" />
                     </button>
 
                     <button
                         onClick={handleNext}
-                        className="absolute right-0 md:right-10 z-30 p-4 rounded-full bg-white/80 backdrop-blur-md text-slate-800 hover:bg-white hover:text-red-600 shadow-xl transition-all hover:scale-110"
+                        className="absolute right-0 md:right-10 z-30 p-4 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-800 text-slate-400 hover:text-red-500 hover:border-red-500/50 shadow-xl transition-all duration-300 hover:scale-110"
                     >
                         <ChevronRight className="w-6 h-6" />
                     </button>
@@ -152,17 +152,31 @@ function RecentEvents() {
                                     layout
                                     initial={{
                                         opacity: 0,
-                                        scale: 0.8,
-                                        x: position === 'left' ? -100 : position === 'right' ? 100 : 0
+                                        scale: 0.9,
+                                        x: position === 'left' ? -200 : position === 'right' ? 200 : 0,
+                                        y: 20
                                     }}
                                     animate={{
-                                        opacity: position === 'center' ? 1 : 0.4,
-                                        scale: position === 'center' ? 1 : 0.85,
-                                        x: position === 'left' ? '-50%' : position === 'right' ? '50%' : '0%',
+                                        opacity: position === 'center' ? 1 : 0.5,
+                                        scale: position === 'center' ? 1 : 0.88,
+                                        x: position === 'left' ? '-55%' : position === 'right' ? '55%' : '0%',
+                                        y: position === 'center' ? 0 : 15,
                                         zIndex: position === 'center' ? 20 : 10,
-                                        rotateY: position === 'left' ? 15 : position === 'right' ? -15 : 0
+                                        rotateY: position === 'left' ? 12 : position === 'right' ? -12 : 0
                                     }}
-                                    transition={{ duration: 0.5, type: 'spring', stiffness: 100 }}
+                                    exit={{
+                                        opacity: 0,
+                                        scale: 0.85,
+                                        x: position === 'left' ? -200 : 200,
+                                        transition: { duration: 0.4, ease: [0.43, 0.13, 0.23, 0.96] }
+                                    }}
+                                    transition={{
+                                        duration: 0.6,
+                                        type: 'spring',
+                                        stiffness: 120,
+                                        damping: 18,
+                                        mass: 0.8
+                                    }}
                                     className={`absolute cursor-pointer rounded-3xl overflow-hidden shadow-2xl ${position === 'center' ? 'w-[320px] md:w-[400px] h-[550px]' : 'w-[280px] md:w-[350px] h-[450px]'
                                         }`}
                                     onClick={() => position === 'center' && setSelectedEvent(event)}
@@ -177,8 +191,8 @@ function RecentEvents() {
 
                                         <div className="absolute top-6 right-6">
                                             <span className={`px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase backdrop-blur-md ${event.isActive
-                                                    ? 'bg-green-500/20 text-green-400 border border-green-500/30'
-                                                    : 'bg-slate-500/20 text-slate-400 border border-slate-500/30'
+                                                ? 'bg-green-500/20 text-green-400 border border-green-500/30'
+                                                : 'bg-slate-500/20 text-slate-400 border border-slate-500/30'
                                                 }`}>
                                                 {event.isActive ? 'Upcoming' : 'Past'}
                                             </span>
