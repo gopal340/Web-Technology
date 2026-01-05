@@ -15,8 +15,26 @@ function RecentEvents() {
                 const response = await axios.get('http://localhost:8000/api/events');
                 if (response.data.success && response.data.data.length > 0) {
                     const sortedEvents = response.data.data.sort((a, b) => {
-                        if (a.isActive === b.isActive) return 0;
-                        return a.isActive ? -1 : 1;
+                        // Convert date strings to Date objects for comparison
+                        const dateA = new Date(a.date);
+                        const dateB = new Date(b.date);
+                        const now = new Date();
+
+                        // Separate upcoming and past events
+                        const aIsUpcoming = dateA >= now;
+                        const bIsUpcoming = dateB >= now;
+
+                        // Upcoming events first
+                        if (aIsUpcoming && !bIsUpcoming) return -1;
+                        if (!aIsUpcoming && bIsUpcoming) return 1;
+
+                        // Within same category (upcoming or past), sort by date
+                        // Upcoming: earliest first, Past: most recent first
+                        if (aIsUpcoming) {
+                            return dateA - dateB; // Ascending for upcoming
+                        } else {
+                            return dateB - dateA; // Descending for past
+                        }
                     });
                     setRecentEvents(sortedEvents);
                 } else {
