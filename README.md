@@ -66,8 +66,8 @@ The primary goal of this system is to replace manual paper-based processes with 
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/WT-CEER.git
-cd WT-CEER
+git clone https://github.com/gopal340/Web-Technology.git
+cd Web-Technology
 ```
 
 ### 2. Backend Setup
